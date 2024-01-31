@@ -10,11 +10,11 @@ import (
 	"strconv"
 )
 
-func getBands(writer http.ResponseWriter, request *http.Request) {
+func GetBands(writer http.ResponseWriter, request *http.Request) {
 	writer.Header().Set("Content-Type", "application/json")
 	json.NewEncoder(writer).Encode(api.Bands)
 }
-func getBand(writer http.ResponseWriter, request *http.Request) {
+func GetBand(writer http.ResponseWriter, request *http.Request) {
 	writer.Header().Set("Content-Type", "application/json")
 
 	params := mux.Vars(request)
@@ -27,7 +27,7 @@ func getBand(writer http.ResponseWriter, request *http.Request) {
 	}
 	json.NewEncoder(writer).Encode(&api.Band{})
 }
-func updateBand(writer http.ResponseWriter, request *http.Request) {
+func UpdateBand(writer http.ResponseWriter, request *http.Request) {
 	writer.Header().Set("Content-Type", "application/json")
 
 	params := mux.Vars(request)
@@ -49,7 +49,7 @@ func updateBand(writer http.ResponseWriter, request *http.Request) {
 	}
 	json.NewEncoder(writer).Encode(api.Bands)
 }
-func createBand(writer http.ResponseWriter, request *http.Request) {
+func CreateBand(writer http.ResponseWriter, request *http.Request) {
 	writer.Header().Set("Content-Type", "application/json")
 
 	var band api.Band
@@ -60,7 +60,7 @@ func createBand(writer http.ResponseWriter, request *http.Request) {
 	api.Bands = append(api.Bands, band)
 	json.NewEncoder(writer).Encode(band)
 }
-func deleteBands(writer http.ResponseWriter, request *http.Request) {
+func DeleteBand(writer http.ResponseWriter, request *http.Request) {
 	writer.Header().Set("Content-Type", "application/json")
 
 	params := mux.Vars(request)
